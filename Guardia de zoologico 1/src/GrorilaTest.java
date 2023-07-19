@@ -1,5 +1,5 @@
-import Animales.Mamiferos;
 import Animales.Gorila;
+import Monstruo.BatTest;
 
 public class GrorilaTest {
     public static void main(String[] args) {
@@ -18,5 +18,7 @@ public class GrorilaTest {
         // Probar el método climb()
         gorila.climb();
 
+        BatTest batTest = new BatTest();
+        batTest.testBat();
     }
 }

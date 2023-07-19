@@ -2,10 +2,8 @@ package Animales;
 
 public class Mamiferos {
     protected int energyLevel = 100;
-    private String nombre;
-    public Mamiferos(){
-        this.nombre = "animal desconocido";
-    }
+    private String nombre = "Animal desconocido";
+    public Mamiferos(){}
 
     public Mamiferos(String nombre){
         this.nombre = nombre;
