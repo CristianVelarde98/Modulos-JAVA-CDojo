@@ -8,16 +8,18 @@ public class Proyecto {
         return "Nombre: " + nombre + " : " + "Descripcion: " + descripcion;
     }
 
-    public void Proyecto(){
-        System.out.println("soy el metodo basico Proyecto");
+     public Proyecto(){
+        this.nombre = "Nuevo Proyecto";
+        this.descripcion = "Descripcion pendiente";
+        System.out.println("Iniciaste un nuevo proyecto");
     }
 
-    public void Proyecto(String name){
+     public Proyecto(String name){
         this.nombre = name;
         System.out.println("El nombre de su proyecto es: " + name);
     }
 
-    public void Proyecto(String name, String description){
+    public Proyecto(String name, String description){
         this.nombre = name;
         this.descripcion = description;
         System.out.println("El nombre de su proyecto es: " + name);

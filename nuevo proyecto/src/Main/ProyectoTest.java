@@ -3,12 +3,11 @@ import Proyecto.Proyecto;
 
 public class ProyectoTest {
     static public void main(String[] args){
-        Proyecto hozpital = new Proyecto();
+        Proyecto NuevoProyecto = new Proyecto();
 
         // sobrecarga del metodo Proyecto
-        hozpital.Proyecto();
-        hozpital.Proyecto("Hozpital Aleman");
-        hozpital.Proyecto("Santa Isabel", "descripcion del proyecto bla bla bla bla");
+        Proyecto hozpital = new Proyecto("Hozpital Aleman");
+        Proyecto hozpitalNuevo = new Proyecto("Santa Isabel", "descripcion del proyecto bla bla bla bla");
 
         // metodo elevatorPitch
         String infoDelProyecto = hozpital.elevatorPitch();
