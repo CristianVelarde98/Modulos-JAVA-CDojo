@@ -7,8 +7,8 @@ public class TestCalculadora {
         System.out.println("Primera operación:");
         calculadora.nuevaOperacion();
 
-        //System.out.println("\nSegunda operación:");
-        //calculadora.nuevaOperacion();
+        System.out.println("\nSegunda operación:");
+        calculadora.nuevaOperacion();
 
         //System.out.println("\nTercera operación:");
         //calculadora.nuevaOperacion();
