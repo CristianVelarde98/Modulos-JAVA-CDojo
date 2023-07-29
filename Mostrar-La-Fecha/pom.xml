@@ -8,15 +8,19 @@
 		<version>3.1.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.cadenas</groupId>
-	<artifactId>cadenas</artifactId>
+	<groupId>Mostrar.La.Fecha</groupId>
+	<artifactId>Mostrar-La-Fecha</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cadenas</name>
-	<description>ejercicio de &quot;cadenas&quot; codignDojo</description>
+	<name>Mostrar-La-Fecha</name>
+	<description>ejercicio Mostrar La Fecha coding dojo</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -24,9 +28,10 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
