@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  margin: 0;
+}
+
+form {
+  text-align: center;
+  max-width: 300px;
+}
+
+label, input, button {
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+}
+
+.error {
+color: red;
+}
+

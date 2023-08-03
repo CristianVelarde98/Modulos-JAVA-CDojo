@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+</head>
+<body>
+
+<div class="container p-2">
+<h1>Ninja Gold</h1>
+
+    <p>
+        Your Gold: <span class="text-success" th:text="${gold}"></span>
+    </p>
+
+    <div class="row">
+
+        <div class="card col mx-2">
+            <form action="/Gold" method="post">
+                <h2>Granja</h2>
+                <p> { earns (+10) - (+20) gold } </p>
+
+                <input type="hidden" name="lugar" value="granja">
+
+                <button type="submit" class="btn btn-info">GOLD!</button>
+            </form>
+
+        </div>
+
+
+
+        <div class="card col mx-2">
+            <form action="/Gold" method="post">
+                <h2>Cueva</h2>
+                <p> { earns (+5) - (+10) gold } </p>
+
+                <input type="hidden" name="lugar" value="cueva">
+
+                <button type="submit" class="btn btn-info">GOLD!</button>
+            </form>
+
+        </div>
+
+        <div class="card col mx-2">
+            <form action="/Gold" method="post">
+                <h2>Casa</h2>
+                <p> { earns (+2) - (+5) gold } </p>
+
+                <input type="hidden" name="lugar" value="casa">
+
+                <button type="submit" class="btn btn-info">GOLD!</button>
+            </form>
+
+        </div>
+
+        <div class="card col mx-2">
+            <form action="/Gold" method="post">
+                <h2>Casino!</h2>
+                <p> { earns (-50) - (+50) gold } </p>
+
+                <input type="hidden" name="lugar" value="casino">
+
+                <button type="submit" class="btn btn-info">GOLD!</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <h2>Activities: </h2>
+        <div class="card col mx-2" style="height: 130px; overflow-y: scroll;">
+            <ul>
+                <li th:each="operacion : ${operaciones}" th:text="${operacion}"></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
