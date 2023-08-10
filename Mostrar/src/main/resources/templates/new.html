@@ -1,0 +1,36 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.springframework.org/tags/form">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>New Book</h1>
+<form action="/books" method="post" th:object="${book}">
+    <p>
+        <label for="title">Title</label>
+        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+        <input type="text" id="title" th:field="*{title}"/>
+    </p>
+    <p>
+        <label for="description">Description</label>
+        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+        <textarea id="description" th:field="*{description}"></textarea>
+    </p>
+    <p>
+        <label for="language">Language</label>
+        <span th:if="${#fields.hasErrors('lenguage')}" th:errors="*{lenguage}"></span>
+        <input type="text" id="language" th:field="*{lenguage}"/>
+    </p>
+    <p>
+        <label for="numberOfPages">Pages</label>
+        <span th:if="${#fields.hasErrors('numberOfPages')}" th:errors="*{numberOfPages}"></span>
+        <input type="number" id="numberOfPages" th:field="*{numberOfPages}"/>
+    </p>
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
