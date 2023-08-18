@@ -32,8 +32,8 @@ public class BookRestController {
     }
 
     @RequestMapping(value = "/api/books/{id}", method = RequestMethod.PUT)
-    public Book updateBook(@PathVariable("id") Long id, @RequestParam(value = "title") String title, @RequestParam(value = "description") String desc, @RequestParam(value = "lenguage") String lenguaje, @RequestParam(value = "pages") Integer pages){
-        Book updateBook = bookServices.updateBook(id, title, desc, lenguaje, pages);
+    public Book updateBook(@PathVariable("id") Long id,@RequestBody Book libro, @RequestParam(value = "title") String title, @RequestParam(value = "description") String desc, @RequestParam(value = "lenguage") String lenguaje, @RequestParam(value = "pages") Integer pages){
+        Book updateBook = bookServices.updateBook(libro);
         return updateBook;
     }
 

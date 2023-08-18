@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<a href="/lenguaje">Volver al inicio</a>   <form th:action="@{/lenguaje/{id}(id=${lenguaje.id})}" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Eliminar">
+</form>
+
+<form action="/lenguaje/actualizar" method="post" th:object="${lenguaje}">
+    <input type="hidden" name="_method" value="put" />
+    <input type="hidden" name="id" th:field="*{id}" />
+
+    <p>
+        <label for="nombre">Nombre del lenguaje: </label>
+        <input type="text" id="nombre" th:field="*{nombre}" />
+    </p>
+
+    <p>
+        <label for="autor">Autor del lenguaje: </label>
+        <input type="text" id="autor" th:field="*{autor}" />
+    </p>
+
+    <p>
+        <label for="versionActual">Version actual del lenguaje: </label>
+        <input type="text" id="versionActual" th:field="*{versionActual}" />
+    </p>
+
+    <button type="submit">Editar!</button>
+</form>
+
+</body>
+</html>

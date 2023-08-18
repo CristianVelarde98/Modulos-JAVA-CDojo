@@ -15,16 +15,16 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min = 5, max = 200)
+    @Size(min = 5, max = 200, message = "Debe contener entre 5 y 200 caracteres")
     private String title;
 
-    @Size(min = 5, max = 200)
+    @Size(min = 5, max = 200, message = "Debe contener entre 5 y 200 caracteres")
     private String description;
 
-    @Size(min = 3, max = 40)
+    @Size(min = 3, max = 40, message = "Debe contener entre 3 y 40 caracteres")
     private String lenguage;
 
-    @Min(100)
+    @Min(value = 100, message = "El libro debe ser de al menos 100 paginas")
     private Integer numberOfPages;
 
     @Column(updatable=false)

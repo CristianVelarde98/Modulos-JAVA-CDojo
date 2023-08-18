@@ -37,16 +37,16 @@ public class BookServices {
     }
 
     // modificar un libro
-    public Book updateBook(Long id, String title, String desc, String lang, Integer pages){
-        Book optionalBook = findBook(id);
+    public Book updateBook(Book libro){
+        Book optionalBook = findBook(libro.getId());
         if(optionalBook == null){
             return null;
         }
 
-        optionalBook.setTitle(title);
-        optionalBook.setDescription(desc);
-        optionalBook.setLenguage(lang);
-        optionalBook.setNumberOfPages(pages);
+        optionalBook.setTitle(libro.getTitle());
+        optionalBook.setDescription(libro.getDescription());
+        optionalBook.setLenguage(libro.getLenguage());
+        optionalBook.setNumberOfPages(libro.getNumberOfPages());
 
         return bookRepo.save(optionalBook);
     }

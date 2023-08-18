@@ -2,10 +2,13 @@ package API.demo.view;
 
 import API.demo.models.Book;
 import API.demo.services.BookServices;
+import jakarta.validation.Valid;
+import org.hibernate.sql.ast.SqlTreeCreationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -30,9 +33,11 @@ public class BookController {
     }
 
     @RequestMapping(value = "/books", method = RequestMethod.POST)
-    public String create(@ModelAttribute("book") Book book, BindingResult result){
+    public String create(@ModelAttribute("book") @Valid Book book, BindingResult result, RedirectAttributes redirectAttributes){
         if(result.hasErrors()){
-            return "new";
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.book", result);
+            redirectAttributes.addFlashAttribute("book", book);
+            return "redirect:/books/new";
         } else {
             servicios.createBook(book);
             return "redirect:/books";
@@ -55,9 +60,26 @@ public class BookController {
     public String deletebook(@PathVariable("id") Long id){
         Book libro = servicios.findBook(id);
         if(libro == null){
-            return "paginaError";
+            return "redirect:/books/" + id;
         }
         servicios.deleteBook(id);
-        return "index";
+        return "redirect:/books";
+    }
+
+    @GetMapping("/books/edit/{id}")
+    public String editarLibro(@PathVariable("id") Long id, Model modelo){
+        Book libro = servicios.findBook(id);
+        modelo.addAttribute("libro", libro);
+        return "edit";
+    }
+
+    @PutMapping("/books/update")
+    public String editarlibro(@ModelAttribute("book") @Valid Book libro, BindingResult resultado){
+        if(resultado.hasErrors()){
+            return "redirect:/books/edit/" + libro.getId();
+        } else {
+            servicios.updateBook(libro);
+            return "redirect:/books";
+        }
     }
 }
