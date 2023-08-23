@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.springframework.org/tags/form">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form action="/canciones/nuevo" method="post" th:object="${cancion}">
+    <p>
+        <label for="titulo">titulo </label>
+        <input type="text" id="titulo" th:field="*{titulo}">
+    </p>
+
+    <p>
+        <label for="artista">artista </label>
+        <input type="text" id="artista" th:field="*{artista}">
+    </p>
+
+    <p>
+        <label for="clasificacion">puntuacion </label>
+        <input type="number" id="clasificacion" th:field="*{clasificacion}">
+    </p>
+
+    <button type="submit">Añadir</button>
+</form>
+</body>
+</html>

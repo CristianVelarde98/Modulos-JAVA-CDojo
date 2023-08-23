@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<a href="/escritorio">Volver al inicio</a>
+
+
+<h4 th:text="'Titulo: ' + ${cancion.titulo}"></h4>
+
+<h4 th:text="'Artista: ' + ${cancion.artista}"></h4>
+
+<h4 th:text="'Puntuacion (1 - 10): ' + ${cancion.clasificacion}"></h4>
+
+
+<form th:action="@{/canciones/{id}(id=${cancion.id})}" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="eliminar">
+</form>
+</body>
+</html>

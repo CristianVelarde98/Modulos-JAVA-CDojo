@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.springframework.org/tags/form">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<a href="/canciones/nuevo">Añadir</a>
+<a href="/buscar/topDiez">Top diez</a>
+
+<form th:action="@{/buscar}" method="get">
+    <input type="text" name="artista" th:value="${artista}">
+    <button type="submit">Buscar Artista</button>
+</form>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Puntuacion</th>
+        <th>Acciones</th>
+    </tr>
+    <tr th:each="cancion : ${canciones}">
+        <td>
+            <a th:text="${cancion.titulo}" th:href="@{/canciones/{id}(id=${cancion.id})}"></a>
+        </td>
+        <td th:text="${cancion.clasificacion}"></td>
+        <td>
+            <form th:action="@{/canciones/{id}(id=${cancion.id})}" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="eliminar">
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<a href="/escritorio">Escritorio</a>
+<h3>Top diez mejores canciones: </h3>
+
+<table>
+    <tbody>
+    <tr th:each="cancion : ${canciones}">
+        <td>
+            <span th:text="${cancion.clasificacion}"></span> -
+            <a th:text="${cancion.titulo}" th:href="@{/canciones/{id}(id=${cancion.id})}"></a> -
+            <span th:text="${cancion.artista}"></span>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>
